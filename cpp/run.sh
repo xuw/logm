@@ -1,0 +1,1 @@
+java -cp sanitize.jar:lib/commons-collections.jar:lib/hadoop-0.18.0-dev-core.jar:lib/commons-configuration-1.4.jar:lib/commons-lang.jar:lib/commons-digester-1.8.jar:lib/log4j-1.2.15.jar:lib/lucene-core-2.1.0.jar:lib/commons-logging.jar org.radlab.sanitize.RuleBasedSanitize conf/gfs.xml conf/gfs-sanitize $1 $2
