@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<configuration>
+
+	<dataRoot>C:\Users\xuw\logExpData\hadoop</dataRoot>
+	
+	<db>
+		<useembedded>true</useembedded>
+		<embedded>
+			<dbname>DB</dbname>
+		</embedded>
+		<dbserver>
+			<dbname>hadoopDB</dbname>
+			<hostname>//x52.millennium.berkeley.edu:1527</hostname>
+		</dbserver>
+	</db>
+  	<parsing>
+  		<loggerFramework>log4j</loggerFramework>
+  		<loggerClassName>Log</loggerClassName>
+  		<projName>hadoop_trunk</projName>
+  	</parsing>
+  	
+  	<index>
+  		<!--
+  		<indexDir>SrcIndex</indexDir>
+  		-->
+  		<logtype>5</logtype>
+  	</index>
+  	
+  	<data>
+  	    <sortByThreadId>true</sortByThreadId>
+  	    
+  	    <!-- EC2 -2 conf.  10 nodes - Mapred
+  	    <logFile>ec2_10_2/comb/hadoop-root-jobtracker-ip-10-251-210-161.log</logFile>
+		<logDBName>jc_10_251_210_161</logDBName>
+		<logFile>ec2_10_2/comb/hadoop-root-tasktracker-ip-10-250-19-130.log</logFile>
+		<logDBName>tc_10_250_19_130</logDBName>
+		<logFile>ec2_10_2/comb/hadoop-root-tasktracker-ip-10-251-107-213.log</logFile>
+		<logDBName>tc_10_251_107_213</logDBName>
+		<logFile>ec2_10_2/comb/hadoop-root-tasktracker-ip-10-251-107-49.log</logFile>
+		<logDBName>tc_10_251_107_49</logDBName>
+		<logFile>ec2_10_2/comb/hadoop-root-tasktracker-ip-10-251-111-165.log</logFile>
+		<logDBName>tc_10_251_111_165</logDBName>
+		<logFile>ec2_10_2/comb/hadoop-root-tasktracker-ip-10-251-193-205.log</logFile>
+		<logDBName>tc_10_251_193_205</logDBName>
+		<logFile>ec2_10_2/comb/hadoop-root-tasktracker-ip-10-251-202-16.log</logFile>
+		<logDBName>tc_10_251_202_16</logDBName>
+		<logFile>ec2_10_2/comb/hadoop-root-tasktracker-ip-10-251-39-244.log</logFile>
+		<logDBName>tc_10_251_39_244</logDBName>
+		<logFile>ec2_10_2/comb/hadoop-root-tasktracker-ip-10-251-42-9.log</logFile>
+		<logDBName>tc_10_251_42_9</logDBName>
+		<logFile>ec2_10_2/comb/hadoop-root-tasktracker-ip-10-251-67-214.log</logFile>
+		<logDBName>tc_10_251_67_214</logDBName>
+		<logFile>ec2_10_2/comb/hadoop-root-tasktracker-ip-10-251-70-8.log</logFile>
+		<logDBName>tc_10_251_70_8</logDBName>
+  	     -->
+  	     
+  	     <logFile>ec2_10_2/comb/hadoop-root-namenode-ip-10-251-210-161.log</logFile>
+		<logDBName>nn_10_251_210_161</logDBName>
+  	     
+  	    <!-- EC2 -2 conf.  10 nodes - HDFS
+  	    <logFile>ec2_10_2/comb/hadoop-root-datanode-ip-10-250-19-130.log</logFile>
+		<logDBName>dn_10_250_19_130</logDBName>
+		<logFile>ec2_10_2/comb/hadoop-root-datanode-ip-10-251-107-213.log</logFile>
+		<logDBName>dn_10_251_107_213</logDBName>
+		<logFile>ec2_10_2/comb/hadoop-root-datanode-ip-10-251-107-49.log</logFile>
+		<logDBName>dn_10_251_107_49</logDBName>
+		<logFile>ec2_10_2/comb/hadoop-root-datanode-ip-10-251-111-165.log</logFile>
+		<logDBName>dn_10_251_111_165</logDBName>
+		<logFile>ec2_10_2/comb/hadoop-root-datanode-ip-10-251-193-205.log</logFile>
+		<logDBName>dn_10_251_193_205</logDBName>
+		<logFile>ec2_10_2/comb/hadoop-root-datanode-ip-10-251-202-16.log</logFile>
+		<logDBName>dn_10_251_202_16</logDBName>
+		<logFile>ec2_10_2/comb/hadoop-root-datanode-ip-10-251-39-244.log</logFile>
+		<logDBName>dn_10_251_39_244</logDBName>
+		<logFile>ec2_10_2/comb/hadoop-root-datanode-ip-10-251-42-9.log</logFile>
+		<logDBName>dn_10_251_42_9</logDBName>
+		<logFile>ec2_10_2/comb/hadoop-root-datanode-ip-10-251-67-214.log</logFile>
+		<logDBName>dn_10_251_67_214</logDBName>
+		<logFile>ec2_10_2/comb/hadoop-root-datanode-ip-10-251-70-8.log</logFile>
+		<logDBName>dn_10_251_70_8</logDBName>
+		<logFile>ec2_10_2/comb/hadoop-root-namenode-ip-10-251-210-161.log</logFile>
+		<logDBName>nn_10_251_210_161</logDBName>
+		<logFile>ec2_10_2/comb/hadoop-root-secondarynamenode-ip-10-251-210-161.log</logFile>
+		<logDBName>snn_10_251_210_161</logDBName>
+  	    -->
+  	    
+  	    <!-- EC2 Exp 1 conf.
+		<logFile>ec2_10/hadoop-root-datanode-ip-10-250-11-21.log</logFile>
+		<logDBName>dn_10_250_11_21</logDBName>
+		<logFile>ec2_10/hadoop-root-datanode-ip-10-251-195-67.log</logFile>
+		<logDBName>dn_10_251_195_67</logDBName>
+		<logFile>ec2_10/hadoop-root-datanode-ip-10-251-199-194.log</logFile>
+		<logDBName>dn_10_251_199_194</logDBName>
+		<logFile>ec2_10/hadoop-root-datanode-ip-10-251-202-16.log</logFile>
+		<logDBName>dn_10_251_202_16</logDBName>
+		<logFile>ec2_10/hadoop-root-datanode-ip-10-251-210-159.log</logFile>
+		<logDBName>dn_10_251_210_159</logDBName>
+		<logFile>ec2_10/hadoop-root-datanode-ip-10-251-215-113.log</logFile>
+		<logDBName>dn_10_251_215_113</logDBName>
+		<logFile>ec2_10/hadoop-root-datanode-ip-10-251-35-69.log</logFile>
+		<logDBName>dn_10_251_35_69</logDBName>
+		<logFile>ec2_10/hadoop-root-datanode-ip-10-251-39-240.log</logFile>
+		<logDBName>dn_10_251_39_240</logDBName>
+		<logFile>ec2_10/hadoop-root-datanode-ip-10-251-74-177.log</logFile>
+		<logDBName>dn_10_251_74_177</logDBName>
+		<logFile>ec2_10/hadoop-root-datanode-ip-10-251-89-189.log</logFile>
+		<logDBName>dn_10_251_89_189</logDBName>
+		<logFile>ec2_10/hadoop-root-namenode-ip-10-251-202-133.log</logFile>
+		<logDBName>nn_10_251_202_133</logDBName>
+		<logFile>ec2_10/hadoop-root-secondarynamenode-ip-10-251-202-133.log</logFile>
+		<logDBName>snn_10_251_202_133</logDBName>
+  	    
+  	     -->
+  	    
+  	    <!--
+  	    <logFile>namenode-r10.log</logFile>
+  		<logDBName>namenode_r10</logDBName>
+  	    <logFile>datanode-r10.log</logFile>
+  		<logDBName>datanode_r10</logDBName>
+  		<logFile>datanode-r14.log</logFile>
+  		<logDBName>datanode_r14</logDBName>
+  		<logFile>datanode-r16.log</logFile>
+  		<logDBName>datanode_r16</logDBName>
+  		-->
+  		
+  		<!-- 
+  		<logFile>jobtracker-r10.log</logFile>
+  		<logDBName>jobtracker_r10</logDBName>
+  	    <logFile>tasktracker-r10.log</logFile>
+  		<logDBName>tasktracker_r10</logDBName>
+  		<logFile>tasktracker-r14.log</logFile>
+  		<logDBName>tasktracker_r14</logDBName>
+  		<logFile>tasktracker-r16.log</logFile>
+  		<logDBName>tasktracker_r16</logDBName>
+  	     -->
+  	     
+  	    <!-- <logFile>namenode_r17.log</logFile>
+  		<logDBName>namenode_r17</logDBName>
+  	    <logFile>datanode-r17.log</logFile>
+  		<logDBName>datanode_r17</logDBName>
+  		<logFile>datanode-r18.log</logFile>
+  		<logDBName>datanode_r18</logDBName>
+  		<logFile>datanode-r19.log</logFile>
+  		<logDBName>datanode_r19</logDBName> -->
+  	    
+  	    <!--<logFile>namenode_r17.log</logFile>
+  		<logDBName>namenode_r17</logDBName>   
+  	    
+  	    <logFile>jobtracker_r17.log</logFile>
+  		<logDBName>jobtracker_r17</logDBName>  
+  	    
+  	    <logFile>namenode_ec2.log</logFile>
+  		<logDBName>namenode_ec2</logDBName>   
+  		
+  		<logFile>smalltest.log</logFile>
+  		<logDBName>smalltest</logDBName>
+  		<logFile>namenode_2_ec2.log</logFile>
+  		<logDBName>namenode_2_ec2</logDBName> 
+  		
+  		<logFile>jobtracker_ec2.log</logFile>
+  		<logDBName>jobtracker_ec2</logDBName> --> 
+  		
+  		<!--
+  		<logIndexDir>LogDataIndex</logIndexDir>
+  		<tmpDir>tmpFiles</tmpDir>
+  		-->
+  	</data>
+  	
+  	<logMatch>
+  		<keepUnMatched>false</keepUnMatched>
+  	</logMatch>
+  	
+  	<debug>false</debug>
+  	
+  	<!-- 
+  	<userlog>
+  		<classname>STARTUP_MSG</classname>
+  		<line>0</line>
+  		<regexpr>STARTUP_MSG:\s*\n\/\*+\s*\n(STARTUP_MSG:(.*)\n)+\*+\/</regexpr>
+  		<multiline>true</multiline>
+  		<namemap></namemap>
+  		<typemap></typemap>
+  	</userlog>
+  	 -->
+  	 
+  	<userlog>
+  		<classname>SHUTDOWN_MSG</classname>
+  		<line>0</line>
+  		<regexpr>SHUTDOWN_MSG:\s*</regexpr>
+  		<namemap></namemap>
+  		<typemap></typemap>
+  	</userlog>
+
+  	<userlog>
+  		<classname>SHUTDOWN_MSG</classname>
+  		<line>2</line>
+  		<regexpr>SHUTDOWN_MSG: (.+)</regexpr>
+  		<namemap></namemap>
+  		<typemap></typemap>
+  	</userlog> 
+
+	<userlog>
+  		<classname>STARTUP_MSG</classname>
+  		<line>0</line>
+  		<regexpr>STARTUP_MSG:\s*</regexpr>
+  		<namemap></namemap>
+  		<typemap></typemap>
+  	</userlog>
+
+  	<userlog>
+  		<classname>STARTUP_MSG</classname>
+  		<line>2</line>
+  		<regexpr>STARTUP_MSG: (.+)</regexpr>
+  		<namemap></namemap>
+  		<typemap></typemap>
+  	</userlog> 
+	
+	
+	<userlog>
+  		<classname>SAFE_MODE</classname>
+  		<line>0</line>
+  		<regexpr>Safe mode will be turned off automatically.</regexpr>
+  		<namemap></namemap>
+  		<typemap></typemap>
+  	</userlog> 
+	
+	<userlog>
+  		<classname>org.apache.hadoop.dfs.FSEditLog-849</classname>
+  		<line>0</line>
+  		<regexpr>Number of transactions: ([0-9]+) Total time for transactions\(ms\): ([0-9]+) Number of syncs: ([0-9]+) SyncTimes\(ms\): (.*)</regexpr>
+  		<namemap>numTransactions;totalTimeTransactions;getNumSync;getTotalSyncTime;</namemap>
+  		<typemap>int;int;int;java.lang.String;</typemap>
+  	</userlog> 
+  	
+  	<userlog>
+  		<classname>TASK_STATUS</classname>
+  		<line>0</line>
+  		<regexpr>task_(.*) (.*)% hdfs://(.*):(.*)</regexpr>
+  		<namemap>tid;progress;file;offset;</namemap>
+  		<typemap>java.lang.String;double;java.lang.String;java.lang.String;</typemap>
+  	</userlog> 
+
+
+	<userlog>
+  		<classname>TASK_STATUS</classname>
+  		<line>1</line>
+  		<regexpr>task_(.*) (.*)% wrote record ([0-9]+)\. ([0-9]+) bytes left\.</regexpr>
+  		<namemap>tid;progress;recordid;bytesleft;</namemap>
+  		<typemap>java.lang.String;double;long;long;</typemap>
+  	</userlog> 
+  	
+  	<userlog>
+  		<classname>TASK_STATUS</classname>
+  		<line>2</line>
+  		<regexpr>task_(.*) (.*)% reduce > copy \(([0-9]+) of ([0-9]+) at (.*) MB/s\) ?>?\s*</regexpr>
+  		<namemap>tid;progress;copied;total;rate;</namemap>
+  		<typemap>java.lang.String;double;int;int;double;</typemap>
+  	</userlog> 
+	
+	<userlog>
+  		<classname>TASK_STATUS</classname>
+  		<line>3</line>
+  		<regexpr>task_(.*) (.*)% reduce > reduce\s*</regexpr>
+  		<namemap>tid;progress;</namemap>
+  		<typemap>java.lang.String;double;</typemap>
+  	</userlog>
+	
+	<userlog>
+  		<classname>TASK_STATUS</classname>
+  		<line>4</line>
+  		<regexpr>task_(.*) (.*)% reduce > sort\s*</regexpr>
+  		<namemap>tid;progress;</namemap>
+  		<typemap>java.lang.String;double;</typemap>
+  	</userlog>
+  	
+  	<userlog>
+  		<classname>TASK_STATUS</classname>
+  		<line>5</line>
+  		<regexpr>task_(.*) (.*)% reduce > copy ?>?\s*</regexpr>
+  		<namemap>tid;progress;</namemap>
+  		<typemap>java.lang.String;double;</typemap>
+  	</userlog>
+	
+	<userlog>
+  		<classname>TASK_STATUS</classname>
+  		<line>6</line>
+  		<regexpr>task_(.*) (.*)% done with ([0-9]+) records\.\s*</regexpr>
+  		<namemap>tid;progress;numrec;</namemap>
+  		<typemap>java.lang.String;double;int;</typemap>
+  	</userlog>
+  	
+  	<userlog>
+  		<classname>TASK_STATUS</classname>
+  		<line>7</line>
+  		<regexpr>task_(.*) (.*)%\s*</regexpr>
+  		<namemap>tid;progress;numrec;</namemap>
+  		<typemap>java.lang.String;double;int;</typemap>
+  	</userlog>
+	
+	
+	<userlog>
+  		<classname>TRACKER_LOST</classname>
+  		<line>0</line>
+  		<regexpr>Error from task_(.*): Lost task tracker: (.*)</regexpr>
+  		<namemap>tid;tracker_id;</namemap>
+  		<typemap>java.lang.String;java.lang.String;</typemap>
+  	</userlog>
+</configuration>
+

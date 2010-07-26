@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- WARNING: Eclipse auto-generated file.
+              Any modifications will be overwritten.
+              To include a user specific buildfile here, simply create one in the same
+              directory with the processing instruction <?eclipse.ant.import?>
+              as the first entry and export the buildfile again. -->
+<project basedir="." default="build" name="javaASTAnalysis">
+    <property environment="env"/>
+    <property name="ECLIPSE_HOME" value="../../../../Program Files/eclipse"/>
+    <property name="graphplot.location" value="../graphplot"/>
+    <property name="debuglevel" value="source,lines,vars"/>
+    <property name="target" value="1.6"/>
+    <property name="source" value="1.6"/>
+    <path id="Plug-in Dependencies.libraryclasspath">
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.ui_3.3.0.I20070614-0800.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.swt_3.3.0.v3346.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.swt.win32.win32.x86_3.3.0.v3346.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.jface_3.3.0.I20070606-0010.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.core.commands_3.3.0.I20070605-0010.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.ui.workbench_3.3.0.I20070608-1100.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.core.runtime_3.3.100.v20070530.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.osgi_3.3.0.v20070530.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.equinox.common_3.3.0.v20070426.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.core.jobs_3.3.0.v20070423.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.core.runtime.compatibility.registry_3.2.100.v20070316/runtime_registry_compatibility.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.equinox.registry_3.3.0.v20070522.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.equinox.preferences_3.2.100.v20070522.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.core.contenttype_3.2.100.v20070319.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.equinox.app_1.0.0.v20070606.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.jdt_3.3.0.v20070607-1300.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.jdt.core_3.3.0.v_771.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.jdt.compiler.apt_1.0.0.v20070510-2000.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.jdt.compiler.tool_1.0.0.v_771.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.text_3.3.0.v20070606-0010.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.core.filebuffers_3.3.0.v20070606-0010.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.core.resources_3.3.0.v20070604.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.apache.derby.core_10.3.1/derby.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.apache.derby.core_10.3.1/derbyclient.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.apache.derby.core_10.3.1/derbytools.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.apache.derby.core_10.3.1/derbynet.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.apache.derby.ui_1.1.1/ui.jar"/>
+    </path>
+    <path id="javaASTAnalysis.classpath">
+        <pathelement location="eclipsebuild"/>
+        <path refid="Plug-in Dependencies.libraryclasspath"/>
+        <pathelement location="lib/jgraph.jar"/>
+        <pathelement location="lib/jgraph-latest-lgpl-src.jar"/>
+        <pathelement location="lib/jgraphpad-6.0.3.3-gpl.jar"/>
+        <pathelement location="lib/lucene-core-2.1.0.jar"/>
+        <pathelement location="lib/lucene-highlighter-2.1.0.jar"/>
+    </path>
+    <target name="init">
+        <mkdir dir="eclipsebuild"/>
+        <copy includeemptydirs="false" todir="eclipsebuild">
+            <fileset dir="src" excludes="**/*.launch, **/*.java"/>
+        </copy>
+    </target>
+    <target name="clean">
+        <delete dir="eclipsebuild"/>
+    </target>
+    <target depends="clean" name="cleanall"/>
+    <target depends="build-subprojects,build-project" name="build"/>
+    <target name="build-subprojects"/>
+    <target depends="init" name="build-project">
+        <echo message="${ant.project.name}: ${ant.file}"/>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="eclipsebuild" source="${source}" target="${target}">
+            <src path="src"/>
+            <classpath refid="javaASTAnalysis.classpath"/>
+        </javac>
+    </target>
+    <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects">
+        <ant antfile="${graphplot.location}/build.xml" inheritAll="false" target="clean"/>
+        <ant antfile="${graphplot.location}/build.xml" inheritAll="false" target="build">
+            <propertyset>
+                <propertyref name="build.compiler"/>
+            </propertyset>
+        </ant>
+    </target>
+    <target description="copy Eclipse compiler jars to ant lib directory" name="init-eclipse-compiler">
+        <copy todir="${ant.library.dir}">
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </copy>
+        <unzip dest="${ant.library.dir}">
+            <patternset includes="jdtCompilerAdapter.jar"/>
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </unzip>
+    </target>
+    <target description="compile project with Eclipse compiler" name="build-eclipse-compiler">
+        <property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
+        <antcall target="build"/>
+    </target>
+    <target name="ASTTest">
+        <java classname="ast.ASTTest" failonerror="true" fork="yes">
+            <classpath refid="javaASTAnalysis.classpath"/>
+        </java>
+    </target>
+    <target name="CreateViews">
+        <java classname="utils.CreateViews" failonerror="true" fork="yes">
+            <classpath refid="javaASTAnalysis.classpath"/>
+        </java>
+    </target>
+    <target name="DbUtils">
+        <java classname="utils.DbUtils" failonerror="true" fork="yes">
+            <classpath refid="javaASTAnalysis.classpath"/>
+        </java>
+    </target>
+    <target name="GenerateLogString">
+        <java classname="mine.GenerateLogString" failonerror="true" fork="yes">
+            <classpath refid="javaASTAnalysis.classpath"/>
+        </java>
+    </target>
+    <target name="ij">
+        <java classname="org.apache.derby.tools.ij" failonerror="true" fork="yes">
+            <classpath refid="javaASTAnalysis.classpath"/>
+        </java>
+    </target>
+    <target name="LogExprIndexer">
+        <java classname="index.LogExprIndexer" failonerror="true" fork="yes">
+            <classpath refid="javaASTAnalysis.classpath"/>
+        </java>
+    </target>
+    <target name="LongLineMatcher">
+        <java classname="index.LongLineMatcher" failonerror="true" fork="yes">
+            <jvmarg line="-Xmx1500m"/>
+            <classpath refid="javaASTAnalysis.classpath"/>
+        </java>
+    </target>
+    <target name="ResetDb">
+        <java classname="utils.ResetDb" failonerror="true" fork="yes">
+            <classpath refid="javaASTAnalysis.classpath"/>
+        </java>
+    </target>
+    <target name="StringUtils">
+        <java classname="utils.StringUtils" failonerror="true" fork="yes">
+            <classpath refid="javaASTAnalysis.classpath"/>
+        </java>
+    </target>
+</project>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<configuration>
+
+	<dataRoot>C:\Users\xuw\logExpData\darkstar</dataRoot>
+	
+	<db>
+		<useembedded>true</useembedded>
+		<embedded>
+			<dbname>DB</dbname>
+		</embedded>
+		<dbserver>
+			<dbname>darkstarDB</dbname>
+			<hostname>//x52.millennium.berkeley.edu:1527</hostname>
+		</dbserver>
+	</db>
+  	<parsing>
+  		<loggerFramework>jdk</loggerFramework>
+  		<loggerClassName>LoggerWrapper</loggerClassName>
+  		<loggerClassName>Logger</loggerClassName>
+  		<projName>darkstar_srv</projName>
+  	</parsing>
+  	
+  	<index>
+  		<!--
+  		<indexDir>SrcIndex</indexDir>
+  		-->
+  		<logtype>6</logtype>
+  	</index>
+  	
+  	<data>
+  	    <sortByThreadId>true</sortByThreadId>
+  	    
+  	    <!-- 
+  	    <logFile>normal_10clients.txt</logFile>
+  		<logDBName>normal_10clients</logDBName>
+  	     -->
+  	    
+  	    <logFile>slow_10clients.txt</logFile>
+  		<logDBName>slow_10clients</logDBName>
+  	    
+  	     
+  	    <!--
+  	    
+  	    
+  	    
+  	    <logFile>samplelog.txt</logFile>
+  		<logDBName>dark_sample</logDBName>
+  	    
+  	    
+  	    <logFile>sample_test.txt</logFile>
+  		<logDBName>dark_sample_test</logDBName>
+
+  	    <logFile>debugtestlog.txt</logFile>
+  		<logDBName>debugsample</logDBName>
+  	    
+  	    <logFile>datastoresample.txt</logFile>
+  		<logDBName>dark_sample</logDBName>
+  	    
+		
+  		-->
+  		<!--
+  		<logIndexDir>LogDataIndex</logIndexDir>
+  		<tmpDir>tmpFiles</tmpDir>
+  		-->
+  	</data>
+  	
+  	<logMatch>
+  		<keepUnMatched>false</keepUnMatched>
+  	</logMatch>
+  	
+  	<debug>false</debug>
+  	
+  	<!-- 
+  	<userlog>
+  		<classname>STARTUP_MSG</classname>
+  		<line>0</line>
+  		<regexpr>STARTUP_MSG:\s*\n\/\*+\s*\n(STARTUP_MSG:(.*)\n)+\*+\/</regexpr>
+  		<multiline>true</multiline>
+  		<namemap></namemap>
+  		<typemap></typemap>
+  	</userlog>
+  	 -->
+	
+	<userlog>
+  		<classname>METHOD_ENTER</classname>
+  		<line>0</line>
+  		<regexpr>\[(.*)\] ENTRY ?(.*)</regexpr>
+  		<multiline>false</multiline>
+  		<namemap>methodname;args</namemap>
+  		<typemap>java.lang.String;java.lang.String</typemap>
+  	</userlog>
+
+	<userlog>
+  		<classname>METHOD_RETURN</classname>
+  		<line>0</line>
+  		<regexpr>\[(.*)\] RETURN ?(.*)</regexpr>
+  		<multiline>false</multiline>
+  		<namemap>methodname;returnval</namemap>
+  		<typemap>java.lang.String;java.lang.String</typemap>
+  	</userlog>
+
+</configuration>
+
