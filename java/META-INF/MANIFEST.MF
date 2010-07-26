@@ -1,0 +1,26 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: JavaAstAnalysis
+Bundle-SymbolicName: JavaAstAnalysis; singleton:=true
+Bundle-Version: 1.0.0
+Bundle-Activator: plugintest.Activator
+Bundle-Localization: plugin
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.jdt,
+ org.eclipse.jdt.core,
+ org.eclipse.ui,
+ org.eclipse.ui.workbench,
+ org.eclipse.text,
+ org.eclipse.core.filebuffers,
+ org.eclipse.core.resources,
+ org.apache.derby.core,
+ org.apache.derby.ui
+Eclipse-LazyStart: true
+Bundle-ClassPath: lib/commons-beanutils.jar,
+ lib/commons-collections.jar,
+ lib/commons-configuration-1.4.jar,
+ lib/commons-digester-1.8.jar,
+ lib/commons-lang.jar,
+ lib/commons-logging.jar,
+ eclipsebuild/

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<configuration>
+	<xml fileName="proj_hadoop_demo.xml"/>
+	<xml fileName="logformats.xml"/>
+</configuration>
+

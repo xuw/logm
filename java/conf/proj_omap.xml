@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<configuration>
+
+	<dataRoot>C:\Users\xuw\logExpData\omap</dataRoot>
+
+	<db>
+		<useembedded>true</useembedded>
+		<embedded>
+			<dbname>DB</dbname>
+		</embedded>
+		<dbserver>
+			<dbname>omapDB</dbname>
+			<hostname>//x52.millennium.berkeley.edu:1527</hostname>
+		</dbserver>
+	</db>
+  	<parsing>
+  		<loggerFramework>jdk</loggerFramework>
+  		<loggerClassName>Logger</loggerClassName>
+  		<projName>omaptrunk</projName>
+  	</parsing>
+  	
+  	<index>
+  		<!--
+  		<indexDir>SrcIndex</indexDir>
+  		-->
+  		<logtype>3</logtype>
+  	</index>
+  	
+  	<data>
+  		<logFile>omap_test_log_2.log</logFile>
+  		<logDBName>sampleLog2</logDBName>
+  		<sortByThreadId>true</sortByThreadId>
+  		<!--
+  		<logIndexDir>LogDataIndex</logIndexDir>
+  		<tmpDir>tmpFiles</tmpDir>
+  		-->
+  		<visDir>vis</visDir>
+  	</data>
+  	
+  	<debug>false</debug>
+	
+	
+	
+</configuration>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<configuration>
+
+	<dataRoot>C:\Users\xuw\logExpData\nutch</dataRoot>
+
+	<db>
+		<useembedded>true</useembedded>
+		<embedded>
+			<dbname>DB</dbname>
+		</embedded>
+		<dbserver>
+			<dbname>nutchCrawlDB</dbname>
+			<hostname>//x52.millennium.berkeley.edu:1527</hostname>
+		</dbserver>
+	</db>
+  	<parsing>
+  		<loggerFramework>log4j</loggerFramework>
+  		<loggerClassName>Log</loggerClassName>
+  		<projName>nutch</projName>
+  	</parsing>
+  	
+  	<index>
+  		<!--
+  		<indexDir>SrcIndex</indexDir>
+  		-->
+  		<logtype>4</logtype>
+  	</index>
+  	
+  	<logMatch>
+  		<keepUnMatched>false</keepUnMatched>
+  	</logMatch>
+  	
+  	<data>
+  	
+  		<logFile>crawl_log_sm.txt</logFile>
+  		<logDBName>crawl_log_sm</logDBName>
+
+  		<sortByThreadId>true</sortByThreadId>
+  		
+  		<!--
+  		<logIndexDir>LogDataIndex</logIndexDir>
+  		<tmpDir>tmpFiles</tmpDir>
+  		-->
+  		<visDir>vis</visDir>
+  	</data>
+  	
+  	<debug>false</debug>
+	
+
+</configuration>
+

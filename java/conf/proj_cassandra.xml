@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<configuration>
+
+	<dataRoot>C:\Users\xuw\logExpData\cassandra</dataRoot>
+	
+	<db>
+		<useembedded>true</useembedded>
+		<embedded>
+			<dbname>DB</dbname>
+		</embedded>
+		<dbserver>
+			<dbname>cassandraDB</dbname>
+			<hostname>//x52.millennium.berkeley.edu:1527</hostname>
+		</dbserver>
+	</db>
+  	<parsing>
+  		<loggerFramework>log4j</loggerFramework>
+  		<loggerClassName>Category</loggerClassName>
+  		<loggerClassName>Logger</loggerClassName>
+  		<projName>cassandra</projName>
+  	</parsing>
+  	
+  	<index>
+  		<!--
+  		<indexDir>SrcIndex</indexDir>
+  		-->
+  		<logtype>6</logtype>
+  	</index>
+  	
+  	<data>
+  	    <sortByThreadId>true</sortByThreadId>
+  	    
+  	    <logFile>normal_10clients.txt</logFile>
+  		<logDBName>normal_10clients</logDBName>
+  	    
+  	    <logFile>slow_10clients.txt</logFile>
+  		<logDBName>slow_10clients</logDBName>
+  	    
+  	    <!--
+
+  	    <logFile>samplelog.txt</logFile>
+  		<logDBName>dark_sample</logDBName>
+  	    
+  	    
+  	    <logFile>sample_test.txt</logFile>
+  		<logDBName>dark_sample_test</logDBName>
+
+  	    <logFile>debugtestlog.txt</logFile>
+  		<logDBName>debugsample</logDBName>
+  	    
+  	    <logFile>datastoresample.txt</logFile>
+  		<logDBName>dark_sample</logDBName>
+  	    
+		
+  		-->
+  		<!--
+  		<logIndexDir>LogDataIndex</logIndexDir>
+  		<tmpDir>tmpFiles</tmpDir>
+  		-->
+  	</data>
+  	
+  	<logMatch>
+  		<keepUnMatched>false</keepUnMatched>
+  	</logMatch>
+  	
+  	<debug>false</debug>
+  	
+  	<!-- 
+  	<userlog>
+  		<classname>STARTUP_MSG</classname>
+  		<line>0</line>
+  		<regexpr>STARTUP_MSG:\s*\n\/\*+\s*\n(STARTUP_MSG:(.*)\n)+\*+\/</regexpr>
+  		<multiline>true</multiline>
+  		<namemap></namemap>
+  		<typemap></typemap>
+  	</userlog>
+  	 -->
+	
+</configuration>
+

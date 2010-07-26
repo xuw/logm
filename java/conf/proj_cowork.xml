@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<configuration>
+
+	<dataRoot>C:\Users\xuw\logExpData\cowork</dataRoot>
+
+	<db>
+		<useembedded>false</useembedded>
+		<embedded>
+			<dbname>DB</dbname>
+		</embedded>
+		<dbserver>
+			<dbname>odisDB</dbname>
+			<hostname>//x52.millennium.berkeley.edu:1527</hostname>
+		</dbserver>
+	</db>
+  	<parsing>
+  		<loggerFramework>jdk</loggerFramework>
+  		<loggerClassName>Logger</loggerClassName>
+  		<projName>odis_trunk</projName>
+  	</parsing>
+  	
+  	<index>
+  		<!--
+  		<indexDir>SrcIndex</indexDir>
+  		-->
+  		<logtype>1</logtype>
+  	</index>
+  	
+  	<data>
+  		<logFile>jm6_sm</logFile>
+  		<!--
+  		<logIndexDir>LogDataIndex</logIndexDir>
+  		<tmpDir>tmpFiles</tmpDir>
+  		-->
+  		<logDBName>sampleLog2</logDBName>
+  	</data>
+  	
+  	<debug>false</debug>
+ 
+  	<dataSeg>
+  		<start>0</start>
+  		<end>8000000</end>
+  	</dataSeg>
+  	
+  	<skip>
+  		<id>24</id>
+  	</skip>
+  	
+  	<userlog>
+  		<classname>StatusReport1</classname>
+  		<line>0</line>
+  		<regexpr>(.+) at stage ([0-9]+): ([0-9]+)/([0-9]+)</regexpr>
+  		<namemap>jobId;stage;finishedSize(stage);totalSize;</namemap>
+  		<typemap>java.lang.String;int;int;int;</typemap>
+  	</userlog>
+  	
+  	<userlog>
+  		<classname>StatusReport2</classname>
+  		<line>0</line>
+  		<regexpr>\s+(Running|Scheduled):\s+(map-only|map|reduce)\(([0-9]+)\)</regexpr>
+  		<namemap>status;jobDef.getStageName;scheduledSize;</namemap>
+  		<typemap>java.lang.String;java.lang.String;int;</typemap>
+  	</userlog>
+  	
+  	<userlog>
+  		<classname>StatusReport2</classname>
+  		<line>1</line>
+  		<regexpr>\s+(Running|Scheduled):\s+map\(([0-9]+)\) reduce\(([0-9]+)\)</regexpr>
+  		<namemap>status;mapRunning;reduceRunning;</namemap>
+  		<typemap>java.lang.String;int;int;</typemap>
+  	</userlog>
+  	
+</configuration>

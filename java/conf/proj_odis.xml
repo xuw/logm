@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<configuration>
+
+	<dataRoot>C:\Users\xuw\logExpData\odis</dataRoot>
+
+	<db>
+		<useembedded>false</useembedded>
+		<embedded>
+			<dbname>DB</dbname>
+		</embedded>
+		<dbserver>
+			<dbname>odisDB</dbname>
+			<hostname>//x52.millennium.berkeley.edu:1527</hostname>
+		</dbserver>
+	</db>
+  	<parsing>
+  		<loggerFramework>jdk</loggerFramework>
+  		<loggerClassName>Logger</loggerClassName>
+  		<projName>odis_trunk</projName>
+  	</parsing>
+  	
+  	<index>
+  		<!--
+  		<indexDir>SrcIndex</indexDir>
+  		-->
+  		<logtype>1</logtype>
+  	</index>
+  	
+  	<data>
+  		<logFile>fs0_sm</logFile>
+  		<logDBName>sampleLog</logDBName>
+  		<!--
+  		<logIndexDir>LogDataIndex</logIndexDir>
+  		<tmpDir>tmpFiles</tmpDir>
+  		-->
+  	</data>
+  	
+  	<debug>false</debug>
+  	
+  	<dataSeg>
+  		<start>0</start>
+  		<end>8000000</end>
+  	</dataSeg>
+  	
+</configuration>

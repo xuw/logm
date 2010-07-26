@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<configuration>
+
+	<dataRoot>C:\Users\xuw\logExpData\omapNew</dataRoot>
+
+	<db>
+		<useembedded>true</useembedded>
+		<embedded>
+			<dbname>DB</dbname>
+		</embedded>
+		<dbserver>
+			<dbname>omapDBNew</dbname>
+			<hostname>//x52.millennium.berkeley.edu:1527</hostname>
+		</dbserver>
+	</db>
+  	<parsing>
+  		<loggerFramework>jdk</loggerFramework>
+  		<loggerClassName>Logger</loggerClassName>
+  		<projName>omaptrunk</projName>
+  	</parsing>
+  	
+  	<index>
+  		<!--
+  		<indexDir>SrcIndex</indexDir>
+  		-->
+  		<logtype>3</logtype>
+  	</index>
+  	
+  	<data>
+  	
+  		<logFile>normal.txt</logFile>
+  		<logDBName>normallog</logDBName>
+  		 
+  		<logFile>duplicate_heartbeats.txt</logFile>
+  		<logDBName>dup_hb</logDBName>
+  		 
+  		<logFile>chkpt_fail.txt</logFile>
+  		<logDBName>chkpt_fail</logDBName>
+
+  		<logFile>normal2.txt</logFile>
+  		<logDBName>normallog2</logDBName>
+
+  		<sortByThreadId>true</sortByThreadId>
+  		
+  		<!--
+  		<logIndexDir>LogDataIndex</logIndexDir>
+  		<tmpDir>tmpFiles</tmpDir>
+  		-->
+  		<visDir>vis</visDir>
+  	</data>
+  	
+  	<debug>false</debug>
+	
+	
+	
+</configuration>
